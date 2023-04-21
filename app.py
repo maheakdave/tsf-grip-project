@@ -7,9 +7,9 @@ app = Flask(__name__)
 #Connect to cloud db
 def get_db_connection():
  try:
-        conn = psy.connect("postgres://tsf:BVO3teBfsE0aQLCxgXdhZ7FE5QjwlVW3@dpg-ch0p2de4dadde4i92rh0-a.singapore-postgres.render.com/tsf_db")
+        conn = psy.connect(os.environ.get('DBURL'))
  except Exception as e:
-        print("Exception while connecting to YugabyteDB")
+        print("Exception while connecting to RenderDB")
         print(e)
         exit(1)
 
